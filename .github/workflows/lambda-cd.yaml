@@ -1,0 +1,16 @@
+name: AWS Lambda CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Echo to standard output
+        run: echo "The dryer is a clear example of a UFO. It makes socks disappear into thin air."
