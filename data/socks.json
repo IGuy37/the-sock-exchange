@@ -1,0 +1,17 @@
+[{
+    "size": "Medium",
+    "color": "Brown",
+    "pattern": "Striped",
+    "material": "Cotton",
+    "condition": "New",
+    "forFoot": "Left"
+},
+{
+    "size": "Small",
+    "color": "Red",
+    "pattern": "Solid",
+    "material": "Wool",
+    "condition": "Used",
+    "forFoot": "Right"
+}]
+
