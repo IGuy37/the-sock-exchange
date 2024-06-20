@@ -1,16 +1,45 @@
-name: AWS Lambda CD
+name: Update and Deploy AWS Lambda Function
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Echo to standard output
-        run: echo "The dryer is a clear example of a UFO. It makes socks disappear into thin air."
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          cd aws
+          npm install --cpu=x64 --os=linux sharp --include=optional
+          npm install --cpu=x64 --os=linux sharp --include=optional
+          npm install --cpu=x64 --os=linux sharp --include=optional
+
+      - name: Zip Lambda function
+        run: |
+          cd aws
+          zip -r function.zip .
+
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region: us-west-2
+
+      - name: Upload zip file to S3
+        run: |
+          aws s3 cp ./aws/function.zip s3://edp-lab3-cloud/resize.zip
+
+      - name: Update Lambda function
+        run: |
+          aws lambda update-function-code --function-name resize --s3-bucket edp-lab3-cloud --s3-key resize.zip
+
