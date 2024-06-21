@@ -1,0 +1,28 @@
+{
+    "info": {
+        "name": "Socks API Test",
+        "_postman_id": "12345678-9abc-def0-1234-56789abcdef0",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "GET Socks",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": ""
+                },
+                "url": {
+                    "raw": "http://localhost:3000/socks",
+                    "protocol": "http",
+                    "host": [
+                        "localhost:3000/socks"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}

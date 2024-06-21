@@ -12,7 +12,7 @@ app.get('/socks', async (_req, res) => {
         res.json(jsonObj);
     } catch (err) {
         console.error("Error:", err);
-        res.status(500).send("Hmmm, something smells... No socks for you!");
+        res.status(500).send("Hmmm, something smells... No socks for you! :(");
     }
 });
 
