@@ -20,6 +20,12 @@ agent any
             }
         }
 
+        stage('Approval') {
+            steps {
+                input message: 'Approve for release?', submitter: 'user'
+            }
+        }
+
         stage('Deploy') {
             steps {
                 bat "xcopy client\\* \"${env.NGINX_HTML_DIR}\" /s /y"
