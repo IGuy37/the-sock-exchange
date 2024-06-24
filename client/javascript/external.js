@@ -7,7 +7,7 @@ function updateHTML(socks) {
 		let sockRow = document.createElement('tr');
 		let sockDetail = sock["sockDetails"];
 		console.log(sockDetail);
-		for(sockProperty in sockDetail){
+		for(const sockProperty in sockDetail){
 			sockRow.innerHTML += `<td>${sockDetail[sockProperty]}</td>`
 		}
 		document.getElementById('data').appendChild(sockRow);
