@@ -1,0 +1,22 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 1em;
+}
+
+.bg-yellow {
+  background-color: yellow;
+  padding: 0.5em;
+  margin-top: 1em;
+  text-align: center;
+}
+
+.bg-green {
+  background-color: green;
+  padding: 0.5em;
+  margin-top: 1em;
+  text-align: center;
+}
