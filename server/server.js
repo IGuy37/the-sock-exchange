@@ -4,7 +4,6 @@ import { promises as fs } from 'fs';
 const app = express();
 const PORT = 3000;
 
-
 // Middleware to parse JSON bodies
 app.use(express.json());
 
@@ -52,22 +51,12 @@ app.get('/socks', async (req, res) => {
     }
 });
 
-
 app.get('/socks/:color', async (req, res) => {
     try {
-        // Console log the entire request object
-        //console.log(req);
-
-        // Console log specific parts of the request
-        //console.log("Headers:", req.headers);
-        //console.log("URL:", req.url);
-        //console.log("Method:", req.method);
-        //console.log("Query parameters:", req.query);
-
         const data = await fs.readFile('../data/socks.json', 'utf8');
         const jsonObj = JSON.parse(data);
         console.log(jsonObj);
-        const matchingColors = []
+        const matchingColors = [];
         for(const sock of jsonObj){
             if(sock.color.toLowerCase() === req.params.color.toLowerCase()){
                 matchingColors.push(sock);
@@ -94,8 +83,6 @@ app.delete('/socks/:id', async (req, res) => {
         res.status(500).send('Hmm, something doesn\'t smell right... Error deleting sock');
     }
 });
-
-
 
 app.put('/user/:id', async (req, res) => {
     try {
