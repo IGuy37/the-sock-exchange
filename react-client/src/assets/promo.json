@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "feature": "Moisture-wicking fabric",
+        "benefit": "Keeps feet dry and comfortable",
+        "target_audience": "Athletes and active individuals"
+    },
+    {
+        "id": 2,
+        "feature": "Compression technology",
+        "benefit": "Improves blood circulation and reduces swelling",
+        "target_audience": "Elderly and those with circulatory issues"
+    },
+    {
+        "id": 3,
+        "feature": "Anti-odor technology",
+        "benefit": "Prevents bad smells for freshness throughout the day",
+        "target_audience": "Office workers and commuters"
+    },
+    {
+        "id": 4,
+        "feature": "Eco-friendly materials",
+        "benefit": "Supports environmental sustainability",
+        "target_audience": "Environmentally conscious consumers"
+    }
+]

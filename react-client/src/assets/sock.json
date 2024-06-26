@@ -1,4 +1,5 @@
-{
+[{
+    "id": "1",
     "sockDetails": {
         "size": "Large",
         "color": "Yellow",
@@ -13,4 +14,39 @@
         "antiBacterial": true
     },
     "addedTimestamp": "2024-01-26T20:53:12.519940"
-}
+},
+{
+    "id": "2",
+    "sockDetails": {
+        "size": "Small",
+        "color": "Red",
+        "pattern": "Checkered",
+        "material": "Wool",
+        "condition": "New",
+        "forFoot": "Left"
+    },
+    "additionalFeatures": {
+        "waterResistant": true,
+        "padded": false,
+        "antiBacterial": true
+    },
+    "addedTimestamp": "2024-01-27T20:53:12.519940"
+},
+{
+    "id": "3",
+    "sockDetails": {
+        "size": "Medium",
+        "color": "Blue",
+        "pattern": "Striped",
+        "material": "Silk",
+        "condition": "Used",
+        "forFoot": "Right"
+    },
+    "additionalFeatures": {
+        "waterResistant": false,
+        "padded": false,
+        "antiBacterial": true
+    },
+    "addedTimestamp": "2024-01-26T20:53:12.519940"
+}]
+
