@@ -1,0 +1,16 @@
+{
+    "sockDetails": {
+        "size": "Large",
+        "color": "Yellow",
+        "pattern": "Plain",
+        "material": "Bamboo",
+        "condition": "Used",
+        "forFoot": "Both"
+    },
+    "additionalFeatures": {
+        "waterResistant": false,
+        "padded": false,
+        "antiBacterial": true
+    },
+    "addedTimestamp": "2024-01-26T20:53:12.519940"
+}
