@@ -11,9 +11,26 @@ import Search from "./components/Search";
 
 
 
+
+
 export default function App() {
   const [data, setData] = useState([]);
-  
+  const handleDelete = async (sockId) => {
+    try {
+        // Make an API request to delete the sock with the given sockId
+        const response = await fetch(`${import.meta.env.VITE_SOCKS_API_URL}/${sockId}`, {
+        method: 'DELETE',
+        });
+        if (!response.ok) {
+            throw new Error('Sock could not be deleted!');
+        }
+        // Update the state or fetch the updated data from the server
+        const updatedData = data.filter(sock => sock._id !== sockId); // Remove the deleted sock from the data array
+        setData(updatedData); // Update the state with the updated data
+      } catch (error) {
+          console.error('Error deleting sock:', error);
+      }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -84,7 +101,7 @@ export default function App() {
             <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
               {
                 data.map((sock) => (
-                  <Sock key={sock._id} data={sock} />
+                  <Sock key={sock._id} data={sock} handleDelete={handleDelete}/>
                 ))
               }
             </div>

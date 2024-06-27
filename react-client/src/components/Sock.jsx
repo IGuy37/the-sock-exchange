@@ -26,9 +26,10 @@ export default function Sock(props){
                 <div className="card-text">Water Resistant: {toYesOrNo(features.waterResistant)}</div>
                 <div className="card-text">Padded: {toYesOrNo(features.padded)}</div>
                 <div className="card-text">Anti Bacterial: {toYesOrNo(features.antiBacterial)}</div>
-            </div>
-            <div className="card-footer" >
-                <small className="text-muted">Added: </small>
+            </div>         
+            <div className="card-footer" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <small className="text-muted">Added: {props.data.addedTimestamp}</small>
+                <button className="btn btn-sm btn-danger" onClick={() => props.handleDelete(props.data._id)}>Delete</button>
             </div>
         </div>
     );
