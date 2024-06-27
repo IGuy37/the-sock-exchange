@@ -1,10 +1,10 @@
 import React from 'react'
 
 export default function Footer({environment}){
-    let color = "green";
+    let color = "yellow";
     environment = environment.toUpperCase();
-    if(environment === "DEVELOPMENT"){
-        color = "yellow";
+    if(environment === "PRODUCTION"){
+        color = "green";
     }
     return(
         <footer className="text-muted">

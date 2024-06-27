@@ -8,10 +8,15 @@ import promo_data from "./assets/promo.json";
 import Promotion from "./components/Promotion";
 import Footer from "./components/Footer";
 import Search from "./components/Search";
+import Home from "./components/Home";
+import About from "./components/About";
 
-
-
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -51,7 +56,7 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <Router>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">TSE</a>
@@ -98,11 +103,15 @@ export default function App() {
                     ))
                 }
             </div>
-            <Home data={data} handleDelete={handleDelete} /> 
+            <Routes>
+              <Route exact path="/" element={<Home data={data} handleDelete={handleDelete} /> }/>
+              <Route path="/about" element={<About/>}/>
+            </Routes>
+            
             <Footer environment={import.meta.env.VITE_ENVIRONMENT}/>
           </div>
         </div>
       </main>
-    </>
+    </Router>
   );
 }
