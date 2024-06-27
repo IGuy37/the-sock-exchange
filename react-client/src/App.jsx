@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 //import './App.css'
@@ -9,7 +9,30 @@ import Promotion from "./components/Promotion";
 import Footer from "./components/Footer";
 import Search from "./components/Search";
 
+
+
 export default function App() {
+  const [data, setData] = useState([]);
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+        try {
+            const url = import.meta.env.VITE_SOCKS_API_URL;
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error('Data could not be fetched!');
+            }
+            const json_response = await response.json();
+            setData(json_response); // assign JSON response to the data variable.
+        } catch (error) {
+            console.error('Error fetching socks:', error);
+        }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -41,7 +64,7 @@ export default function App() {
                 <a className="nav-link disabled" aria-disabled="true">Disabled</a>
               </li>
             </ul>
-            <Search />
+            <Search setData = {setData}/>
           </div>
         </div>
       </nav>
@@ -60,12 +83,12 @@ export default function App() {
             </div>
             <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
               {
-                  sock_data.map((sock) => (
-                  <Sock key={sock.id} data={sock} />
-                  ))
+                data.map((sock) => (
+                  <Sock key={sock._id} data={sock} />
+                ))
               }
             </div>
-              <Footer environment="DEVELOPMENT"/>
+              <Footer environment={import.meta.env.VITE_ENVIRONMENT}/>
           </div>
         </div>
       </main>
