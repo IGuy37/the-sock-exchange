@@ -98,14 +98,8 @@ export default function App() {
                     ))
                 }
             </div>
-            <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-              {
-                data.map((sock) => (
-                  <Sock key={sock._id} data={sock} handleDelete={handleDelete}/>
-                ))
-              }
-            </div>
-              <Footer environment={import.meta.env.VITE_ENVIRONMENT}/>
+            <Home data={data} handleDelete={handleDelete} /> 
+            <Footer environment={import.meta.env.VITE_ENVIRONMENT}/>
           </div>
         </div>
       </main>
