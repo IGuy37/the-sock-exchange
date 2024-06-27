@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Search from "./components/Search";
 import Home from "./components/Home";
 import About from "./components/About";
+import Featured from "./components/Featured"
 
 import {
   BrowserRouter as Router,
@@ -61,10 +62,14 @@ export default function App() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <Link className="nav-link" to="/">
+                    Home
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                <Link className="nav-link" to="/about">
+                    About
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -90,14 +95,7 @@ export default function App() {
         <div className="container-fluid">
           <div className="row">
             Both socks and space rockets 🚀 will take you to new heights, but only one will get cold feet!
-            <h2>Featured</h2>
-            <div className="card-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-                {
-                    promo_data.map((promo) => (
-                    <Promotion key={promo.id} data={promo} />
-                    ))
-                }
-            </div>
+            <Featured promo_data = {promo_data}/>
             <Routes>
               <Route exact path="/" element={<Home data={data} handleDelete={handleDelete} /> }/>
               <Route path="/about" element={<About/>}/>
