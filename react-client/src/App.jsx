@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-//import './App.css'
-import sock_data from './assets/sock.json';
-import Sock from "./components/Sock";
 import promo_data from "./assets/promo.json";
 import Promotion from "./components/Promotion";
 import Footer from "./components/Footer";
