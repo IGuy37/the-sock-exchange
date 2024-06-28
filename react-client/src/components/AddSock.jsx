@@ -24,7 +24,7 @@ export default function AddSock(props){
             alert("Please provide a user ID and try again.");
             return;
         }
-        sock.addedTimestamp = new Date().toLocaleString("en-US");
+        sock.addedTimestamp = new Date().toISOString();
         setSock(sock);
         fetch(`${import.meta.env.VITE_SOCKS_API_URL}`, {
             method: "POST",
