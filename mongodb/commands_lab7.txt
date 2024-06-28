@@ -1,0 +1,5 @@
+7.3 Part 1:
+db.socks.insertOne({sockDetails: {size: "Medium", color: "Brown", material: "Bamboo", condition: "New", forFoot: "Left"}, additionalFeatures:{waterResistant: false, padded: false, antiBacterial: false}})
+
+7.3 Part 2:
+db.socks.updateMany({"sockDetails.condition": "Used"}, {$set: {"additionalFeatures.padded": true}})
