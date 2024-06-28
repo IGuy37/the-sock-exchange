@@ -1,11 +1,31 @@
-import Reacrt, {useState} from 'react'
+import React, {useState} from 'react'
 
 export default function AddSock(props){
-
-    const [sock, setSock] = useState({});
+    const defaultSock = {
+        sockDetails: {
+            size: "Small",
+            color: "Blue",
+            pattern: "Striped",
+            material: "Wool",
+            condition: "Used",
+            forFoot: "Left"
+        },
+        additionalFeatures: {
+            waterResistant: false,
+            padded: false,
+            antiBacterial: false
+        }
+    }
+    const [sock, setSock] = useState(defaultSock);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(!sock.userId){
+            alert("Please provide a user ID and try again.");
+            return;
+        }
+        sock.addedTimestamp = new Date().toLocaleString("en-US");
+        setSock(sock);
         fetch(`${import.meta.env.VITE_SOCKS_API_URL}`, {
             method: "POST",
             body: JSON.stringify(sock),
@@ -13,23 +33,38 @@ export default function AddSock(props){
                 "Content-Type": "application/json",
             },
         })
-        .then((response) => response.json())
-        .then((data) => {
-            // Handle the response data
-            props.setData(data);
-            console.log(data);
+        .then((response) => {
+            console.log(response);
+            alert("Sock submitted succesfully!");
         })
         .catch((error) => {
             // Handle any errors
             console.error(error);
-        });e.preventDefault();
-            console.log('ock submitted');
+        });
+        
     };
 
     const handleChange = (e) => {
-        //setSock(e.target.value);
-        console.log(e);
+        const field = e.target.name;
+       
+        const val =  e.target.value;
+        if(field === "userId"){
+            sock[field] = val;
+        } else {
+            sock.sockDetails[field] = val;
+        }
+       
+        setSock(sock);
+        console.log(sock);
     }; 
+
+    const handleCheck = (e) => {
+        const field = e.target.name;
+        const isChecked =  e.target.checked; 
+        sock.additionalFeatures[field] =isChecked;
+        setSock(sock);
+        console.log(sock); 
+    }
 
     return(
     <form className="p-3" onSubmit={handleSubmit}>
@@ -40,6 +75,7 @@ export default function AddSock(props){
                 className="form-control"
                 id="userId"
                 name="userId"
+                onChange = {handleChange}
             />
         </div>
         <div className="form-group">
@@ -48,6 +84,7 @@ export default function AddSock(props){
                 className="form-control"
                 id="size"
                 name="size"
+                onChange={handleChange}
             >
                 <option>Small</option>
                 <option>Medium</option>
@@ -61,6 +98,7 @@ export default function AddSock(props){
                 className="form-control"
                 id="color"
                 name="color"
+                onChange={handleChange}
             />
         </div>
         <div className="form-group">
@@ -70,6 +108,7 @@ export default function AddSock(props){
                 className="form-control"
                 id="pattern"
                 name="pattern"
+                onChange = {handleChange}
             />
         </div>
         <div className="form-group">
@@ -79,6 +118,7 @@ export default function AddSock(props){
                 className="form-control"
                 id="material"
                 name="material"
+                onChange={handleChange}
             />
         </div>
         <div className="form-group">
@@ -87,6 +127,7 @@ export default function AddSock(props){
                 className="form-control"
                 id="condition"
                 name="condition"
+                onChange={handleChange}
             >
                 <option>Used</option>
                 <option>New</option>
@@ -98,6 +139,7 @@ export default function AddSock(props){
                 className="form-control"
                 id="forFoot"
                 name="forFoot"
+                onChange={handleChange}
             >
                 <option>Left</option>
                 <option>Right</option>
@@ -111,6 +153,7 @@ export default function AddSock(props){
                     type="checkbox"
                     id="waterResistant"
                     name="waterResistant"
+                    onChange={handleCheck}
                 />
                 <label className="form-check-label" htmlFor="waterResistant">
                     Water Resistant
@@ -122,6 +165,7 @@ export default function AddSock(props){
                     type="checkbox"
                     id="padded"
                     name="padded"
+                    onChange={handleCheck}
                 />
                 <label className="form-check-label" htmlFor="padded">
                     Padded
@@ -133,13 +177,14 @@ export default function AddSock(props){
                     type="checkbox"
                     id="antiBacterial"
                     name="antiBacterial"
+                    onChange={handleCheck}
                 />
                 <label className="form-check-label" htmlFor="antiBacterial">
                     Anti Bacterial
                 </label>
             </div>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
             Submit
         </button>
     </form>

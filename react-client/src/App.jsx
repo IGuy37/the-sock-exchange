@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import promo_data from "./assets/promo.json";
-import Promotion from "./components/Promotion";
 import Footer from "./components/Footer";
 import Search from "./components/Search";
 import Home from "./components/Home";
 import About from "./components/About";
-import Featured from "./components/Featured"
+import Featured from "./components/Featured";
+import AddSock from "./components/AddSock";
 
 import {
   BrowserRouter as Router,
@@ -71,19 +71,10 @@ export default function App() {
                     About
                 </Link>
               </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
               <li className="nav-item">
-                <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+                <Link className='nav-link' to="/add-sock">
+                  Add a Sock
+                </Link>
               </li>
             </ul>
             <Search setData = {setData}/>
@@ -99,6 +90,7 @@ export default function App() {
             <Routes>
               <Route exact path="/" element={<Home data={data} handleDelete={handleDelete} /> }/>
               <Route path="/about" element={<About/>}/>
+              <Route path="/add-sock" element={<AddSock setData={setData}/>}/>
             </Routes>
             
             <Footer environment={import.meta.env.VITE_ENVIRONMENT}/>
