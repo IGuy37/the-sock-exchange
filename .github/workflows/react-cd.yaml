@@ -25,13 +25,13 @@ jobs:
 
       - name: Configure .env file
         run: |
-          cd react
+          cd react-client
           echo "VITE_SOCKS_API_URL = https://ecs.the-sock-exchange.com/api/socks" > .env
           echo "VITE_ENVIRONMENT = production" >> .env
 
       - name: Build Vite React app
         run: |
-          cd react
+          cd react-client
           npm run build
 
       - name: Set up AWS CLI
@@ -43,5 +43,5 @@ jobs:
 
       - name: Sync build directory to S3
         run: |
-          aws s3 sync ./react/dist s3://the-sock-exchange-react-edp-june --delete
+          aws s3 sync ./react-client/dist s3://the-sock-exchange-react-edp-june --delete
 
