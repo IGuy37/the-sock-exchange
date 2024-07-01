@@ -6,17 +6,43 @@ agent any
     }
 
     stages {
-        stage('Build') {
+         stage('Install dependencies') {
             steps {
-                // Build placeholder
-                echo "Building..."
+                // Run unit tests
+                bat '''
+                    cd react
+                    npm install
+                '''
             }
         }
 
         stage('Test') {
             steps {
-                // Test placeholder
-                echo "Running tests..."
+                // Run unit tests
+                bat '''
+                    cd react
+                    npm run test
+                '''
+            }
+        }
+
+         stage('Add .env file') {
+            steps {
+                // Run unit tests
+                bat '''
+                    cd react
+                    (echo VITE_SOCKS_API_URL = http://localhost:3000/socks & echo VITE_ENVIRONMENT = development) > .env
+                '''
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build for production
+                bat '''
+                    cd react
+                    npm run build
+                '''
             }
         }
 
@@ -28,7 +54,8 @@ agent any
 
         stage('Deploy') {
             steps {
-                bat "xcopy client\\* \"${env.NGINX_HTML_DIR}\" /s /y"
+                // Deploy unit tested production build to nginx
+                bat "xcopy react\\dist\\* \"${env.NGINX_HTML_DIR}\" /s /y"
             }
         }
     }

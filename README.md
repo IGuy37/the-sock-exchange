@@ -1,6 +1,6 @@
 # The Sock Exchange
 This guided project was created for the Travelers Engineering Development Program (EDP) bootcamp.
-It was developed in the form of varying labs teaching us how to use JavaScript, Git, GitHub, Agile, Jenkins and more!
+It was developed in the form of varying labs teaching us how to use JavaScript, Git, GitHub, Agile, the MERN stack, PostgreSQL and more!
 
 ## Project Description
 Welcome to The Sock Exchange - your one-stop-shop for reuniting lost soles!
