@@ -16,6 +16,8 @@ import {
 
 export default function App() {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const socksPerPage = 10;
   const handleDelete = async (sockId) => {
     try {
         // Make an API request to delete the sock with the given sockId
@@ -36,7 +38,7 @@ export default function App() {
   useEffect(() => {
     const fetchData = async () => {
         try {
-            const url = import.meta.env.VITE_SOCKS_API_URL;
+            const url =`${import.meta.env.VITE_SOCKS_API_URL}/${page}/${socksPerPage}`;
             const response = await fetch(url);
             if (!response.ok) {
                 throw new Error('Data could not be fetched!');
@@ -88,7 +90,7 @@ export default function App() {
             Both socks and space rockets 🚀 will take you to new heights, but only one will get cold feet!
             <Featured promo_data = {promo_data}/>
             <Routes>
-              <Route exact path="/" element={<Home data={data} handleDelete={handleDelete} /> }/>
+              <Route exact path="/" element={<Home data={data} handleDelete={handleDelete} page={page} setPage={setPage}/> }/>
               <Route path="/about" element={<About/>}/>
               <Route path="/add-sock" element={<AddSock setData={setData}/>}/>
             </Routes>

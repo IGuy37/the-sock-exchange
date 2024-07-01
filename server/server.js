@@ -86,6 +86,26 @@ app.get('/socks/:color', async (req, res) => {
     }
 });
 
+
+
+app.get('/socks/:page/:limit', async (req, res) => {
+    try {
+        let { page, limit } = req.params;
+        limit = +limit; // The + converts limit from a string to integer.
+        const client = await MongoClient.connect(url);
+        const db = client.db(dbName);
+        const collection = db.collection(collectionName);
+        console.log(page);
+        const socks = await collection.find({}).skip((page - 1) * limit).limit(limit).toArray();
+        res.json(socks);
+    } catch (err) {
+        console.error('Error:', err);
+        res.status(500).send('Hmm, something doesn\'t smell right... Error fetching socks');
+    }
+});
+
+
+
 app.delete('/socks/:id', async (req, res) => {
     try {
         const {id} = req.params;
