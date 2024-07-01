@@ -10,7 +10,7 @@ agent any
             steps {
                 // Run unit tests
                 bat '''
-                    cd react
+                    cd react-client
                     npm install
                 '''
             }
@@ -20,7 +20,7 @@ agent any
             steps {
                 // Run unit tests
                 bat '''
-                    cd react
+                    cd react-client
                     npm run test
                 '''
             }
@@ -30,7 +30,7 @@ agent any
             steps {
                 // Run unit tests
                 bat '''
-                    cd react
+                    cd react-client
                     (echo VITE_SOCKS_API_URL = http://localhost:3000/socks & echo VITE_ENVIRONMENT = development) > .env
                 '''
             }
@@ -40,7 +40,7 @@ agent any
             steps {
                 // Build for production
                 bat '''
-                    cd react
+                    cd react-client
                     npm run build
                 '''
             }
