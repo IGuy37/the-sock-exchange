@@ -6,6 +6,9 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Featured from "./components/Featured";
 import AddSock from "./components/AddSock";
+import RequireAuth from './components/RequireAuth';
+import AuthProvider from './hooks/AuthContext';
+import LoginForm from './components/LoginForm';
 
 import {
   BrowserRouter as Router,
@@ -89,12 +92,18 @@ export default function App() {
           <div className="row">
             Both socks and space rockets 🚀 will take you to new heights, but only one will get cold feet!
             <Featured promo_data = {promo_data}/>
-            <Routes>
-              <Route exact path="/" element={<Home data={data} handleDelete={handleDelete} page={page} setPage={setPage}/> }/>
-              <Route path="/about" element={<About/>}/>
-              <Route path="/add-sock" element={<AddSock setData={setData}/>}/>
-            </Routes>
-            
+            <AuthProvider>
+              <Routes>
+                <Route exact path="/" element={<Home data={data} handleDelete={handleDelete} page={page} setPage={setPage}/> }/>
+                <Route path="/about" element={<About/>}/>
+                <Route path="/add-sock" element={
+                  <RequireAuth>
+                    <AddSock setData={setData}/>      
+                  </RequireAuth>
+                  }/>
+                <Route path="/login" element={<LoginForm />} />
+              </Routes>
+            </AuthProvider>
             <Footer environment={import.meta.env.VITE_ENVIRONMENT}/>
           </div>
         </div>
