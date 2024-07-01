@@ -55,7 +55,7 @@ agent any
         stage('Deploy') {
             steps {
                 // Deploy unit tested production build to nginx
-                bat "xcopy react\\dist\\* \"${env.NGINX_HTML_DIR}\" /s /y"
+                bat "xcopy react-client\\dist\\* \"${env.NGINX_HTML_DIR}\" /s /y"
             }
         }
     }
