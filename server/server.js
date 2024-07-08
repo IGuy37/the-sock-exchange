@@ -13,10 +13,10 @@ const collectionName = process.env.MONGO_DB_COLLECTION;
 const { Pool } = pg;
 // PostgreSQL pool configuration
 const pool = new Pool({
-    user: 'postgres',
+    user: process.env.POSTGRES_USER,
     host: process.env.POSTGRES_HOST,
     database: process.env.POSTGRES_DB,
-    password: 'postgres',
+    password: process.env.PROCESS_PASSWORD,
     port: 5432,
 });
 
