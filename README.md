@@ -9,35 +9,46 @@ Fear not, for The Sock Exchange is here to save the day (and your feet) from mis
 Our innovative platform is dedicated to the noble cause of re-pairing the unpaired, ensuring that every sock finds its soulmate.
 
 ## Learning Goals
-Throughout this bootcamp, we learned about:
+Throughout this bootcamp, by completing these labs we:
 - Modern Web Development
     - Vanilla JavaScript
-        - Learning the client/server model for web applications
-        - Raw DOM manipulation using the Document object
+        - Learned the client/server model for web applications
+        - Learned how to perform DOM manipulation using the Document object
         - Used `fetch()` along with other asynchronous functions
-    - Cloud Essentials
-        - Using AWS
-        - Creating an EC2 instance, S3 bucket, and Lambda Functions
+    - Cloud Essentials with AWS
+        - Created an EC2 instance
+        - Created an S3 bucket and used it to host a static website
+        - Created a Lambda Function to run the code for the website
 
 - DevOps
-    - Using Git to track source code
-    - Pushing code to GitHub to share with others
-    - Creating pull requests to class repositories to experience the open-source workflow model
+    - Used Git to track source code
+    - Pushed code to GitHub to share with others
+    - Created pull requests to class repositories to experience the open-source workflow model
     - Used Node Package Manager (NPM) to manage dependencies
    
 
 - CI/CD (Continuous Integration / Continuous Deployment or Delivery)
-    - Using GitHub Actions to automatically deploy code to AWS S3 and Lambda Functions
-    - Using Jenkins to create builds of code on GitHub to run locally
+    - Used GitHub Actions to automatically deploy code to AWS S3 and Lambda Functions
+    - Used Jenkins to create builds of code on GitHub
 
 - The MERN stack
     - Created databases using MongoDB
-        - Used MongoDB Compass to view our data
+        - Used `MongoDB Compass` to view the database
     - Created a web server using Node.js and Express to fetch data from the MongoDB database
-    - Created a web client using React.js to fetch data from the server and display it to the user
-        - Modeled React components to cleanly organize our website
-        - Used React Routing to make our website a SPA (Single Page Application)
+        - Used routing to create an API for the client to use
+        - Used a `.env` file to hold information about the database connection
+            - Includes sensitive information not uploaded to this GitHub repository to help prevent unauthorized access
+        - Used `express-rate-limit` to help prevent Denial of Service (DoS) attacks
+        - Sanitized user input using MongoDB's `$eq` operator
+    - Created a website using React.js to fetch data from the server and display it to the user
+        - Modeled React components to cleanly organize the website
+        - Used React Routing to make the website a SPA (Single Page Application)
     - Created a rudimentary authentication server using PostgreSQL
+        - Used `pgAdmin 4` to view the PostgreSQL database
+
+- Test-Driven Development (TDD)
+    - Used Jest to test React Components
+    - Added tests to GitHub Actions & Jenkins Workflow to test automatically upon pushing code
 
 - Data Engineering
     - Use Python
