@@ -6,6 +6,4 @@ document.getElementById('loginButton').addEventListener('click', function() {
     } else {
         document.getElementById("feedback").innerHTML = "Not Authorized."
     }
-    console.log('Username: ' + username);
-    console.log('Password: ' + password);
 });

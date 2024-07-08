@@ -47,4 +47,4 @@ def generate_socks(*args, **kwargs):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
