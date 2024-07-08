@@ -14,7 +14,7 @@ Throughout this bootcamp, we learned about:
     - Vanilla JavaScript
         - Learning the client/server model for web applications
         - Raw DOM manipulation using the Document object
-        - 
+        - Used `fetch()` along with other asynchronous functions
     - Cloud Essentials
         - Using AWS
         - Creating an EC2 instance, S3 bucket, and Lambda Functions
