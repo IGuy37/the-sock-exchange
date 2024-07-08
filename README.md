@@ -51,5 +51,7 @@ Throughout this bootcamp, by completing these labs we:
     - Added tests to GitHub Actions & Jenkins Workflow to test automatically upon pushing code
 
 - Data Engineering
-    - Use Python
+    - Learned the basics of Python
+    - Used DataBricks cloud computing to process big data
+    - Used Python's `pandas`, `matplotlib`, and `seaborn` packages to visualize and manipulate data
     - To be continued...
