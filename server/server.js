@@ -29,9 +29,11 @@ app.use(express.json());
 app.use(cors());
 
 // set up rate limiter: maximum of 60 requests per minute
+const maxRequests = 60;
+const numSeconds = 60;
 const limiter = RateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 60, // max 5 requests per windowMs
+  windowMs: numSeconds * 1000, // 1000 milliseconds = 1 second
+  max: maxRequests, 
 });
 
 // apply rate limiter to all requests
