@@ -27,6 +27,16 @@ const PORT = 3000;
 app.use(express.json());
 app.use(cors());
 
+// set up rate limiter: maximum of 60 requests per minute
+const RateLimit = require('express-rate-limit');
+const limiter = RateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 60, // max 5 requests per windowMs
+});
+
+// apply rate limiter to all requests
+app.use(limiter);
+
 app.post('/socks', async (req, res) => {
     try {
         const client = await MongoClient.connect(url);
