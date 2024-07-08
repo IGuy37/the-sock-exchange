@@ -4,6 +4,7 @@ import { MongoClient, ObjectId } from 'mongodb';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import pg from 'pg';
+import RateLimit from 'express-rate-limit';
 
 dotenv.config();
 const url = process.env.MONGO_DB_URL;
@@ -28,7 +29,6 @@ app.use(express.json());
 app.use(cors());
 
 // set up rate limiter: maximum of 60 requests per minute
-const RateLimit = require('express-rate-limit');
 const limiter = RateLimit({
   windowMs: 60 * 1000, // 1 minute
   max: 60, // max 5 requests per windowMs
