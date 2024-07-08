@@ -63,7 +63,8 @@ app.post('/socks/search', async (req, res) => {
         const db = client.db(dbName);
         const collection = db.collection(collectionName);
         console.log(req.body);
-        const documents = await collection.find({"sockDetails.color": req.body.searchTerm}).toArray();
+        const searchTerm = req.body.searchTerm;
+        const documents = await collection.find({"sockDetails.color": searchTerm}).toArray();
         console.log(documents);
         client.close();
         res.json(documents);
