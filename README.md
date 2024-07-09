@@ -19,18 +19,14 @@ Throughout this bootcamp, by completing these labs we:
         - Created an EC2 instance
         - Created an S3 bucket and used it to host a static website
         - Created a Lambda Function to run the code for the website
-
 - DevOps
     - Used Git to track source code
     - Pushed code to GitHub to share with others
     - Created pull requests to class repositories to experience the open-source workflow model
     - Used Node Package Manager (NPM) to manage dependencies
-   
-
 - CI/CD (Continuous Integration / Continuous Deployment or Delivery)
     - Used GitHub Actions to automatically deploy code to AWS S3 and Lambda Functions
     - Used Jenkins to create builds of code on GitHub
-
 - The MERN stack
     - Created databases using MongoDB
         - Used `MongoDB Compass` to view the database
@@ -45,13 +41,35 @@ Throughout this bootcamp, by completing these labs we:
         - Used React Routing to make the website a SPA (Single Page Application)
     - Created a rudimentary authentication server using PostgreSQL
         - Used `pgAdmin 4` to view the PostgreSQL database
-
 - Test-Driven Development (TDD)
     - Used Jest to test React Components
-    - Added tests to GitHub Actions & Jenkins Workflow to test automatically upon pushing code
-
+    - Added tests to GitHub Actions & Jenkins Workflow to test automatically upon pushing code to GitHub
 - Data Engineering
     - Learned the basics of Python
     - Used DataBricks cloud computing to process big data
-    - Used Python's `pandas`, `matplotlib`, and `seaborn` packages to visualize and manipulate data
-    - To be continued...
+    - Used Python's `pandas` and `pyspark` libraries to manipulate data using dataframes
+        - Used these dataframes to clean improperly formatted data
+    - Used Python's `matplotlib` and `seaborn` libraries to visualize dataframes
+- Data Science
+    - Used Python's `scikit-learn` library to perform predictive modeling on data
+        - Used `LogisticRegression` as the model
+    - Used Python's `train-test-split` library to split data into training and testing data
+    - Used Python's builtin `pickle` library to read/write a trained model to disk
+    
+
+## How to Run
+Clone the code from this repository. Ensure you have NPM and MongoDB installed and a MongoDB server is running on localhost:27017. Run the following in the root of the project:
+
+```bash
+cd server
+npm install
+npm run start
+```
+
+In a separate terminal starting in the root directory, run:
+```bash
+cd react-client
+npm install
+npm run dev
+```
+Note that `npm install` is only necessary the first time as it initializes dependencies.
