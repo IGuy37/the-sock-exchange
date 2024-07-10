@@ -59,7 +59,7 @@ Throughout this bootcamp, by completing these labs we:
     - Read a trained model from disk using `pickle` and deployed it using a web server written with Python's `Flask` module
 
 ## How to Run The Sock Exchange website locally
-Clone the code from this repository. Ensure you have NPM and MongoDB installed and a MongoDB server is running on localhost:27017. Run the following in the root of the project:
+Clone the code from this repository. Ensure you have NPM and MongoDB installed and a MongoDB server is running on `localhost:27017`. Run the following in the root of the project:
 
 ```bash
 cd server
