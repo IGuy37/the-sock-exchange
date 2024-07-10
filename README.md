@@ -53,9 +53,10 @@ Throughout this bootcamp, by completing these labs we:
 - Data Science
     - Used Jupyter Notebooks to develop Python code
     - Used Python's `scikit-learn` library to perform predictive modeling on data
-        - Used `LogisticRegression` as the model
-        - Used `train-test-split` to split data into training and testing data
-    - Used Python's builtin `pickle` library to read/write a trained model to disk
+        - Used the `LogisticRegression`and `k-Nearest Neighbors` models
+        - Used `ShuffleSplit`and `train-test-split` to split data into training and testing data
+    - Used Python's builtin `pickle` library to write a trained model to disk
+    - Read a trained model from disk using `pickle` and deployed it using a web server written with Python's `Flask` module
 
 ## How to Run The Sock Exchange website locally
 Clone the code from this repository. Ensure you have NPM and MongoDB installed and a MongoDB server is running on localhost:27017. Run the following in the root of the project:
