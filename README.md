@@ -46,18 +46,18 @@ Throughout this bootcamp, by completing these labs we:
     - Added tests to GitHub Actions & Jenkins Workflow to test automatically upon pushing code to GitHub
 - Data Engineering
     - Learned the basics of Python
-    - Used DataBricks cloud computing to process big data
-    - Used Python's `pandas` and `pyspark` libraries to manipulate data using dataframes
+    - Used DataBricks Community Edition cloud computing to process big data
+    - Used Python's `pandas`, `numpy`, and `pyspark` libraries to manipulate data using dataframes
         - Used these dataframes to clean improperly formatted data
     - Used Python's `matplotlib` and `seaborn` libraries to visualize dataframes
 - Data Science
+    - Used Jupyter Notebooks to develop Python code
     - Used Python's `scikit-learn` library to perform predictive modeling on data
         - Used `LogisticRegression` as the model
-    - Used Python's `train-test-split` library to split data into training and testing data
+        - Used `train-test-split` to split data into training and testing data
     - Used Python's builtin `pickle` library to read/write a trained model to disk
-    
 
-## How to Run
+## How to Run The Sock Exchange website locally
 Clone the code from this repository. Ensure you have NPM and MongoDB installed and a MongoDB server is running on localhost:27017. Run the following in the root of the project:
 
 ```bash
