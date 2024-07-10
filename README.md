@@ -46,7 +46,7 @@ Throughout this bootcamp, by completing these labs we:
     - Added tests to GitHub Actions & Jenkins Workflow to test automatically upon pushing code to GitHub
 - Data Engineering
     - Learned the basics of Python
-    - Used DataBricks Community Edition cloud computing to process big data
+    - Used DataBricks Community Edition and Snowflake cloud platforms to process big data
     - Used Python's `pandas`, `numpy`, and `pyspark` libraries to manipulate data using dataframes
         - Used these dataframes to clean improperly formatted data
     - Used Python's `matplotlib` and `seaborn` libraries to visualize dataframes
